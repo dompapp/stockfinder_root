@@ -1,3 +1,21 @@
-<p>
-  product-list works!
-</p>
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+<!--        <th scope="col">ID</th>-->
+        <th scope="col">Manufacturer</th>
+        <th scope="col">Name</th>
+        <th scope="col">Max price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product.manufacturer.manufacturerName}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.productMaxPrice}}€</td>
+      </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -2,18 +2,18 @@ package at.papp.stockfinder.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
+@Table(name = "MANUFACTURER")
 public class Manufacturer {
 
     @Id
-    @Column(name = "manufacturer_Id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "MANUFACTURER_ID")
     private Long manufacturerId;
-    @Column(name = "manufacturer_Name")
+    @Column(name = "MANUFACTURER_NAME")
     private String manufacturerName;
 
 }

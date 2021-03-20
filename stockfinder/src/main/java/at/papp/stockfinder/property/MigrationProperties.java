@@ -26,7 +26,7 @@ public class MigrationProperties {
     private String fixture;
 
     @Getter
-    private boolean cleanUp = false;
+    private boolean cleanUp = true;
     @Getter
     private boolean repair = false;
 

@@ -10,13 +10,16 @@ import javax.persistence.*;
 public class ProductUrl {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PRODUCT_URL_ID")
     private Long productUrlId;
 
+    @Column(name = "PRODUCT_URL_URI")
+    private String productUri;
+
     @ManyToOne
     @JoinColumn(name = "PRODUCT_URL_PRODUCT_ID")
-    private AbstractProduct product;
+    private Product product;
 
 
 }

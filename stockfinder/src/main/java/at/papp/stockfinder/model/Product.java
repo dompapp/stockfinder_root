@@ -7,31 +7,39 @@ import javax.persistence.*;
 @Data
 @Entity
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 @Table(name = "PRODUCT")
-public class AbstractProduct implements IProduct {
+public class Product implements IProduct {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PRODUCT_ID")
-    Long productId;
+    private Long productId;
     @Column(name = "PRODUCT_NAME")
     @ToString.Include
-    String productName;
+    private String productName;
     @ToString.Include
     @Column(name = "PRODUCT_MAX_PRICE")
-    Double productMaxPrice;
+    private Double productMaxPrice;
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_MANUFACTURER_ID")
+    private Manufacturer manufacturer;
 
-    public AbstractProduct(String productName, Double maxProductPrice) {
+    public Product() {
+        this.productId = 0L;
+        this.productName = "Default name";
+        this.productMaxPrice = 0.00;
+    }
+
+    public Product(String productName, Double maxProductPrice) {
         this.productName = productName;
         this.productMaxPrice = maxProductPrice;
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("AbstractProduct{");
+        final StringBuilder sb = new StringBuilder("Product{");
         sb.append("productId=").append(productId);
         sb.append(", productName='").append(productName).append('\'');
         sb.append(", productMaxPrice=").append(productMaxPrice);
