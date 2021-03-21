@@ -27,24 +27,30 @@ public class Product implements IProduct {
     private Manufacturer manufacturer;
 
     public Product() {
-        this.productId = 0L;
-        this.productName = "Default name";
-        this.productMaxPrice = 0.00;
+        this("Unknown");
+    }
+
+    public Product(String productName) {
+        this(productName, 0.00);
     }
 
     public Product(String productName, Double maxProductPrice) {
+        this(productName, maxProductPrice, -1L);
+    }
+
+    public Product(String productName, Double maxProductPrice, Long productId) {
         this.productName = productName;
         this.productMaxPrice = maxProductPrice;
+        this.productId = productId;
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Product{");
-        sb.append("productId=").append(productId);
-        sb.append(", productName='").append(productName).append('\'');
-        sb.append(", productMaxPrice=").append(productMaxPrice);
-        sb.append('}');
-        return sb.toString();
+        String sb = "Product{" + "productId=" + productId +
+                ", productName='" + productName + '\'' +
+                ", productMaxPrice=" + productMaxPrice +
+                '}';
+        return sb;
     }
 }
 

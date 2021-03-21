@@ -1,3 +1,4 @@
+
 import {Component, OnInit} from '@angular/core';
 import {ProductUrl} from '../model/product-url';
 import {ProductUrlService} from '../service/product-url.service';
@@ -9,15 +10,24 @@ import {ProductUrlService} from '../service/product-url.service';
 })
 export class ProductUrlListComponent implements OnInit {
 
+  displayedColumns: string[] = ['manufacturer', 'product', 'url'];
   urls: ProductUrl[] = [];
 
   constructor(private productUrlService: ProductUrlService) {
   }
 
   ngOnInit(): void {
-    this.productUrlService.findAll().subscribe(
-      data => this.urls = data,
-      error => console.log(error)
+    // @ts-ignore
+    this.productUrlService.findAll().subscribe(data => {
+      if (data !== undefined) {
+        this.urls = data;
+      }},
+      (error: any) => console.log(error)
     );
+  }
+
+  printContentOnConsole(event: any, productUrlId: number): void {
+    console.log('productUrlId: ' + productUrlId);
+    this.productUrlService.getContent(productUrlId).subscribe(data => console.log(data));
   }
 }

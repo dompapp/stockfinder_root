@@ -20,44 +20,16 @@ public class ProductController {
 
     private ProductRepositoryImpl productRepositoryImpl;
 
-//    @RequestMapping("/")
-//    public String index() {
-//        return "here is index";
-//    }
-//
-//    @RequestMapping("/justin")
-//    public String justin() {
-//        return "Grüße an den Burzi";
-//    }
-
-//    @RequestMapping("/products")
-//    public String getProducts() {
-//        try {
-//            return Lists.newArrayList(productRepository.findAll()).toString();
-//        } catch (NullPointerException e) {
-//            System.out.println("Exception: " + e.getMessage());
-//            return "no products found";
-//        }
-//        return null;
-//    }
-
     @GetMapping("/products")
     public List<Product> getProducts() {
+       //System.out.println(Lists.newArrayList(productRepository.findAll()));
         return Lists.newArrayList(productRepository.findAll());
     }
 
     @PostMapping("/products")
-    void addProduct(@RequestBody Product product) {
-        System.out.println("Adding product");
+    public void addProduct(@RequestBody Product product) {
+        //System.out.println("Adding product: " + product);
         productRepository.save(product);
-    }
-
-    @GetMapping("/strs")
-    public List<String> getStrings() {
-        List<String> lst = new ArrayList<>();
-        lst.add("hai");
-        lst.add("fisch");
-        return lst;
     }
 
 }

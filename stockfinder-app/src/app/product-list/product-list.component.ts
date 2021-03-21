@@ -9,14 +9,17 @@ import {ProductService} from '../service/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  products!: Product[];
+  displayedColumns: string[] = ['product', 'maxprice'];
+  products: Product[] = [];
 
   constructor(private productService: ProductService) {
   }
 
   ngOnInit(): void {
     this.productService.findAll().subscribe(data => {
-      this.products = data;
+      if (data !== undefined)  {
+        this.products = data;
+      }
     });
   }
 

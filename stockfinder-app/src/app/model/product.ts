@@ -1,6 +1,6 @@
 import {Manufacturer} from './manufacturer';
 
-export class Product {
+export interface Product {
   productId: number | undefined;
   productName: string | undefined;
   productMaxPrice: number | undefined;

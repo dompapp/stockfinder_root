@@ -17,8 +17,11 @@ export class ProductService {
     return this.http.get<Product[]>(this.productUrl);
   }
 
-  public save(product: Product) {
+  public save(product: Product): Observable<Product> {
     return this.http.post<Product>(this.productUrl, product);
   }
 
+  // public createProduct(product: Product): Observable<Product> {
+  //   return this.http.post<Product>(this.productUrl, product);
+  // }
 }
