@@ -9,14 +9,15 @@ import {ProductUrlService} from '../service/product-url.service';
 })
 export class ProductUrlListComponent implements OnInit {
 
-  urls: ProductUrl[];
+  urls: ProductUrl[] = [];
 
   constructor(private productUrlService: ProductUrlService) {
   }
 
-  ngOnInit() {
-    this.productUrlService.findAll().subscribe(data => {
-      this.urls = data;
-    });
+  ngOnInit(): void {
+    this.productUrlService.findAll().subscribe(
+      data => this.urls = data,
+      error => console.log(error)
+    );
   }
 }

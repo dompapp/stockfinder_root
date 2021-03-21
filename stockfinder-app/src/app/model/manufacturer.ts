@@ -1,4 +1,4 @@
 export class Manufacturer {
-  manufacturerId: number;
-  manufacturerName: string;
+  manufacturerId: number | undefined;
+  manufacturerName: string | undefined;
 }
