@@ -25,6 +25,7 @@
     "@nebular/theme": "^7.0.0",
     "core-js": "^3.9.1",
     "eva-icons": "^1.1.2",
+    "material-components-web": "^10.0.0",
     "rxjs": "~6.6.6",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"

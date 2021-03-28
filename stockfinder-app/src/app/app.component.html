@@ -1,8 +1,29 @@
-<div class="mat-toolbar">
-  <nav mat-tab-nav-bar backgroundColor="primary">
-    <a mat-tab-link routerLink="/products" routerLinkActive>Products</a>
-    <a mat-tab-link routerLink="/urls" routerLinkActive>Urls</a>
-  </nav>
-  <router-outlet></router-outlet>
+<div>
+  <div class="mat-toolbar">
+    <nav mat-tab-nav-bar backgroundColor="primary">
+      <a mat-tab-link routerLink="/home" routerLinkActive>
+        <span class="material-icons">home
+        </span>
+        <!--        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>-->
+        Home
+      </a>
+      <a mat-tab-link routerLink="/products" routerLinkActive>
+        <span class="material-icons">attach_money</span>Products
+        <!--        <mat-icon aria-hidden="false" aria-label="Example home icon">products</mat-icon>-->
+        <!--        Products-->
+      </a>
+      <a mat-tab-link routerLink="/urls" routerLinkActive>
+        <span class="material-icons">http</span>Urls
+      </a>
+    </nav>
+  </div>
+  <div class="mat-body">
+    <mat-card>
+      <mat-card-content>
+        <router-outlet></router-outlet>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
 </div>
 

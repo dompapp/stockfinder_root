@@ -20,13 +20,18 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import { HomeComponent } from './home/home.component';
+import {MatSortModule} from "@angular/material/sort";
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ProductFormComponent,
-    ProductUrlListComponent
+    ProductUrlListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,10 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatButtonModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule,
+    MatIconModule,
+    MatSortModule
   ],
   providers: [ManufacturerService, ProductService, ProductUrlService],
   bootstrap: [AppComponent]
